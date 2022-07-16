@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Fragment } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import { SideBar, DashBoard, Currencies, MoneyControl, News } from './components'
+const App = () => {
+    return (
+        <Fragment>
+            <div className="App flex flex-row">
+                <SideBar />
+                <Routes>
+                    <Route index element={<DashBoard />}></Route >
+                    <Route path="/currencies" element={<Currencies />} />
+                    <Route path="/money-control" element={<MoneyControl />} />
+                    <Route path="/news" element={<News />} />
+                    <Route path="*" element={<DashBoard />} />
+                </Routes>
+            </div>
+            <div className="footer flex justify-center items-center h-20 bg-gray-700 w-screen">Footer</div>
+        </Fragment >
+    )
 }
 
-export default App;
+export default App
