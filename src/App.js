@@ -14,7 +14,9 @@ const App = () => {
                     <Route path="*" element={<DashBoard />} />
                 </Routes>
             </div>
-            <div className="footer flex justify-center items-center h-20 bg-gray-700 w-screen">Footer</div>
+            <div className="footer flex justify-center items-center h-20 text-white bg-slate-700 w-screen">
+                <div className="text-sm font-light">&copy;CryptoWorld</div>
+            </div>
         </Fragment >
     )
 }
