@@ -8,7 +8,7 @@ const App = () => {
                 <SideBar />
                 <Routes>
                     <Route index element={<DashBoard />}></Route >
-                    <Route path="/currencies" element={<Currencies />} />
+                    <Route path="/currencies" element={<Currencies nums={100} />} />
                     <Route path="/money-control" element={<MoneyControl />} />
                     <Route path="/news" element={<News />} />
                     <Route path="*" element={<DashBoard />} />

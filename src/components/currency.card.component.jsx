@@ -2,9 +2,9 @@ import React from 'react'
 import millify from 'millify'
 const CurrencyCard = ({ data: { uuid, rank, name, price, marketCap, change, iconUrl } }) => {
     return (
-        <div className="card flex flex-col m-3 border-solid border-2 p-4 border-orange-200 bg-orange-200 rounded-xl" key={uuid}>
+        <div className="card flex flex-col m-3 border-solid border-2 p-3 h-50 border-purple-200 bg-purple-200 rounded-xl" key={uuid}>
             <div className="flex flex-row justify-between mb-3">
-                <p className="text-xl font-bold text-gray-700 mr-4">{`${rank}. ${name}`}</p>
+                <p className="text-lg font-bold text-gray-700 mr-4">{`${rank}. ${name}`}</p>
                 <img src={iconUrl} className="w-8" alt="..." />
             </div>
             <div className="flex flex-col">

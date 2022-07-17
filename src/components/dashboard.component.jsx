@@ -4,9 +4,12 @@ import { useGetCryptosQuery } from '../services/cryptoApi'
 import Currencies from './currencies.component'
 import millify from 'millify'
 const DashBoard = () => {
-    const { data, isFetching } = useGetCryptosQuery()
+    const { data, isFetching } = useGetCryptosQuery(10)
     if (isFetching) return 'Loading...'
     const globalStats = data?.data?.stats
+
+    console.log(globalStats)
+
     return (
         <div className="flex flex-col w-4/5 ">
             <div className="capitalize flex justify-start items-center p-6 text-3xl font-bold text-gray-600 ">global crypto stats</div>
@@ -37,8 +40,9 @@ const DashBoard = () => {
             <div>
                 <div className="capitalize flex justify-start items-center p-6 text-3xl font-bold text-gray-600">top 10 crypto currencies in the world</div>
 
+                <Currencies nums={10} />
                 <div className="capitalize flex justify-end items-center p-6 text-2xl font-bold text-blue-600"><Link to="/currencies">show more</Link></div>
-                <Currencies simplified={true} />
+
             </div>
         </div>
     )

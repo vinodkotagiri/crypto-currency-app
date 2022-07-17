@@ -1,19 +1,20 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import CurrencyCard from './currency.card.component'
 import { useGetCryptosQuery } from '../services/cryptoApi'
 
-const Currencies = (simplified) => {
-    const count = simplified ? 10 : 100
-    const { data: cryptosList, isFetching } = useGetCryptosQuery(count)
-    const [cryptos, setCryptos] = useState(cryptosList?.data?.coins)
+const Currencies = ({ nums }) => {
+
+    const { data, isFetching } = useGetCryptosQuery(nums)
+    if (isFetching) return 'Loading. . .'
+    const coins = data.data.coins
 
     return (
         <Fragment>
-            <div className="grid grid-cols-4 justify-center items-center">
+            <div className=" ml-4 grid grid-cols-4 space-x-0 justify-center items-center">
 
                 {
-                    cryptos.map((crypto) => (
+                    coins.map((crypto) => (
                         <Link to={`/currencies/${crypto.uuid}`} >
                             <CurrencyCard data={crypto} />
                         </Link>
